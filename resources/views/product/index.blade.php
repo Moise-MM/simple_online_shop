@@ -1,5 +1,7 @@
 <x-app-layout>
 
+    <x-slot:title>All products</x-slot:title>
+
     <div class="container py-5">
         <div class="row">
             @foreach ($viewData['products'] as $product)
@@ -11,9 +13,9 @@
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h5 class="fw-bolder">{{ $product->name }}</h5>
+                                <h5 class="fw-bolder">{{ $product->getName() }}</h5>
                                 <!-- Product price-->
-                                ${{ $product->price }}
+                                ${{ $product->getPrice() }}
                             </div>
                         </div>
                         <!-- Product actions-->
