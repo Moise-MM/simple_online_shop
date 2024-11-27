@@ -14,5 +14,5 @@ Route::name('home.')->controller(HomeController::class)->group(function(){
 
 Route::name('product.')->controller(ProductController::class)->group(function(){
     Route::get('/products', 'index')->name('index');
-    Route::get('/products/{id}', 'show')->name('show');
+    Route::get('/products/{product}', 'show')->name('show');
 });

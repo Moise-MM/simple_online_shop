@@ -11,16 +11,16 @@
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h5 class="fw-bolder">{{ $product['name'] }}</h5>
+                                <h5 class="fw-bolder">{{ $product->name }}</h5>
                                 <!-- Product price-->
-                                ${{ $product['price'] }}
+                                ${{ $product->price }}
                             </div>
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                             <div class="text-center">
                                 <a class="btn btn-outline-dark mt-auto"
-                                    href="{{ route('product.show', ['id' => $product['id']]) }}">View options</a>
+                                    href="{{ route('product.show',['product' => $product]) }}">View options</a>
                             </div>
                         </div>
                     </div>

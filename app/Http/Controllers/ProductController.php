@@ -2,18 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class ProductController extends Controller
 {
-    public static $products = [
-        ["id"=>"1", "name"=>"TV", "description"=>"Best TV", "image" => "game.png", "price"=>"1000.00"],
-        ["id"=>"2", "name"=>"iPhone", "description"=>"Best iPhone", "image" => "safe.png", "price"=>"999.00"],
-        ["id"=>"3", "name"=>"Chromecast", "description"=>"Best Chromecast", "image" => "submarine.png", "price"=>"30.00"],
-        ["id"=>"4", "name"=>"Glasses", "description"=>"Best Glasses", "image" => "game.png", "price"=>"100.00"]
-    ];
-
         
     /**
      * display all products
@@ -25,17 +19,24 @@ class ProductController extends Controller
         $viewData = [];
         $viewData["title"] = "Products - Online Store";
         $viewData["subtitle"] = "List of products";
-        $viewData["products"] = ProductController::$products;
+        $viewData["products"] = Product::all();
         return view('product.index',[
             'viewData' => $viewData
         ]);
     }
 
-
-    public function show($id)
+    
+    /**
+     * Display a single product
+     *
+     * @param Product $product 
+     *
+     * @return void
+     */
+    public function show(Product $product)
     {
         $viewData = [];
-        $product = ProductController::$products[$id-1];
+        $product = $product;
         $viewData["title"] = $product["name"]." - Online Store";
         $viewData["subtitle"] = $product["name"]." - Product information";
         $viewData["product"] = $product;
