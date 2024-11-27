@@ -7,6 +7,13 @@ use Illuminate\View\View;
 
 class HomeController extends Controller
 {
+
+        
+    /**
+     * Display home page
+     *
+     * @return View
+     */
     public function index(): View
     {
         $viewData = [];
@@ -20,7 +27,12 @@ class HomeController extends Controller
     }
 
 
-
+    
+    /**
+     * Display About page
+     *
+     * @return View
+     */
     public function about():View
     {
         $viewData = [];
