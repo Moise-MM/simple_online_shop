@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\AdminHomeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -15,4 +16,10 @@ Route::name('home.')->controller(HomeController::class)->group(function(){
 Route::name('product.')->controller(ProductController::class)->group(function(){
     Route::get('/products', 'index')->name('index');
     Route::get('/products/{product}', 'show')->name('show');
+});
+
+
+
+Route::name('admin.')->controller(AdminHomeController::class)->group(function(){
+    Route::get('/admin', 'index')->name('home.index');
 });
