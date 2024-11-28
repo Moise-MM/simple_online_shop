@@ -37,11 +37,11 @@ class AdminProductController extends Controller
 
         if($validator->fails())
         {
-            return view('product.partials._error_form',['errors' => $validator->errors()]);
+            return view('admin.product.partials._error_form',['errors' => $validator->errors()]);
         }
 
         Product::create($request->all());
 
-        return view('shared._success_message',['message' => "Product added"]);
+        return view('admin.product.partials._success_message',['message' => "Product added"]);
     }
 }

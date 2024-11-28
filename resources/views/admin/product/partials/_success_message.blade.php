@@ -6,4 +6,4 @@
 </div>
 
 
-@include('product.partials._form_product')
+@include('admin.product.partials._form_product')

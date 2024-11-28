@@ -11,7 +11,7 @@
             hx-select-oob="#row_form"
             >
             @csrf
-            @include('product.partials._form_product')
+            @include('admin.product.partials._form_product')
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
 

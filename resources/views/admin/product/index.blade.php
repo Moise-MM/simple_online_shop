@@ -4,7 +4,7 @@
         <div class="card-header">
             <p>Manage Products</p>
             <p>
-                <a href="{{ route('admin.product.create') }}" class="btn-primary btn-sm"
+                <a href="{{ route('admin.product.create') }}" class="btn btn-primary"
                     hx-boost="true"
                     hx-target=".content" 
                     hx-select=".content"
