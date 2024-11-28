@@ -19,6 +19,9 @@ class Product extends Model
      */
 
 
+    protected $fillable = ['name', 'price', 'description', 'image'];
+
+
     public function getId()
     {
         return $this->attributes['id'];

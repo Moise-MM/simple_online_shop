@@ -22,23 +22,46 @@
     <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/43.3.1/ckeditor5.css" />
 
     <script src="https://unpkg.com/htmx.org@2.0.3" differ></script>
-        <script>
-          // Permet d'ajouter le token CSRF à chaque requête AJAX,
-          // pour éviter les erreurs 419, spécifiques à Laravel.
-          document.addEventListener('DOMContentLoaded', function() {
-              document.body.addEventListener('htmx:configRequest', (event) => {
-                  event.detail.headers['X-CSRF-Token'] = '{{ csrf_token() }}';
-              })
-          });
-      </script>
+    <script>
+        // Permet d'ajouter le token CSRF à chaque requête AJAX,
+        // pour éviter les erreurs 419, spécifiques à Laravel.
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.addEventListener('htmx:configRequest', (event) => {
+                event.detail.headers['X-CSRF-Token'] = '{{ csrf_token() }}';
+            })
+        });
+    </script>
 
 
-      <style>
+    <style>
         a:hover {
             text-decoration: none;
         }
-      </style>
-      
+
+        .alert {
+            position: relative;
+            padding: 0.75rem 1.25rem;
+            margin-bottom: 1rem;
+            border: 1px solid transparent;
+            border-radius: 0.25rem;
+        }
+
+        .alert-danger {
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+        }
+
+        .alert-success {
+            color: #155724;
+            /* Text color */
+            background-color: #d4edda;
+            /* Background color */
+            border-color: #c3e6cb;
+            /* Border color */
+        }
+    </style>
+
 </head>
 
 <body>
@@ -51,23 +74,16 @@
 
                 <ul class="sidebar-nav nav-link">
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="{{ route('admin.home.index') }}" 
-                            hx-boost="true"
-                            hx-target=".content" 
-                            hx-select=".content"
-                            hx-swap="outerHTML"
-                            >
-                            <i class="align-middle" data-feather="sliders"></i><span class="align-middle">Dashboard</span>
+                        <a class="sidebar-link" href="{{ route('admin.home.index') }}" hx-boost="true"
+                            hx-target=".content" hx-select=".content" hx-swap="outerHTML">
+                            <i class="align-middle" data-feather="sliders"></i><span
+                                class="align-middle">Dashboard</span>
                         </a>
                     </li>
 
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="{{ route('admin.product.index') }}" 
-                            hx-boost="true"
-                            hx-target=".content" 
-                            hx-select=".content"
-                            hx-swap="outerHTML"
-                            >
+                        <a class="sidebar-link" href="{{ route('admin.product.index') }}" hx-boost="true"
+                            hx-target=".content" hx-select=".content" hx-swap="outerHTML">
                             <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Products</span>
                         </a>
                     </li>
