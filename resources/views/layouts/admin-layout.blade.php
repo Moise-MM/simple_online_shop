@@ -19,6 +19,8 @@
 
     <link href="{{ asset('back_end_assets/css/app.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/43.3.1/ckeditor5.css" />
+
     <script src="https://unpkg.com/htmx.org@2.0.3" differ></script>
         <script>
           // Permet d'ajouter le token CSRF à chaque requête AJAX,
@@ -29,6 +31,13 @@
               })
           });
       </script>
+
+
+      <style>
+        a:hover {
+            text-decoration: none;
+        }
+      </style>
       
 </head>
 
@@ -43,7 +52,7 @@
                 <ul class="sidebar-nav nav-link">
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="{{ route('admin.home.index') }}" 
-                            hx-get="{{ route('admin.home.index') }}"
+                            hx-boost="true"
                             hx-target=".content" 
                             hx-select=".content"
                             hx-swap="outerHTML"
@@ -54,7 +63,7 @@
 
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="{{ route('admin.product.index') }}" 
-                            hx-get="{{ route('admin.product.index') }}" 
+                            hx-boost="true"
                             hx-target=".content" 
                             hx-select=".content"
                             hx-swap="outerHTML"

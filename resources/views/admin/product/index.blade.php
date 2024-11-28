@@ -2,7 +2,14 @@
 
     <div class="card">
         <div class="card-header">
-            Manage Products
+            <p>Manage Products</p>
+            <p>
+                <a href="{{ route('admin.product.create') }}" class="btn-primary btn-sm"
+                    hx-boost="true"
+                    hx-target=".content" 
+                    hx-select=".content"
+                    hx-swap="outerHTML">Add new product</a>
+            </p>
         </div>
         <div class="card-body">
             <table class="table table-bordered table-striped">
@@ -26,7 +33,6 @@
                 </tbody>
             </table>
         </div>
-    </div>
     </div>
 
 
