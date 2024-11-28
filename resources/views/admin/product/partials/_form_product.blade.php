@@ -13,4 +13,9 @@
             <x-text-area name="description" label="Description" />
         </div>
     </div>
+    <div class="row">
+        <div class="col">
+            <x-input name="image" label="Image" type="file" />
+        </div>
+    </div>
 </div>

@@ -6,7 +6,9 @@
 
         <div id="response"></div>
 
-        <form method="POST" action="{{ route('admin.product.store') }}" hx-post="{{ route('admin.product.store') }}"
+        <form method="POST" action="{{ route('admin.product.store') }}"
+            enctype="multipart/form-data" 
+            hx-post="{{ route('admin.product.store') }}"
             hx-target="#response"
             hx-select-oob="#row_form"
             >

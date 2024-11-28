@@ -8,7 +8,7 @@
                 <div class="col-md-4 col-lg-3 mb-2">
                     <div class="card h-100">
                         <!-- Product image-->
-                        <img src="{{ asset('img/no-image.avif') }}" class="card-img-top img-card">
+                        <img src="{{ $product->getImage() ? asset('storage/'.$product->getImage()) : asset('img/no-image.avif') }}" class="card-img-top img-card">
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
