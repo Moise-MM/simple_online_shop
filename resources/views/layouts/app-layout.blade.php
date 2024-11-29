@@ -23,7 +23,7 @@
           });
       </script>
     </head>
-    <body hx-boost="true">
+    <body>
         <!-- Navigation-->
        @include('layouts.partials._navbar')
 

@@ -1,12 +1,28 @@
 <?php
 
-use App\Http\Controllers\admin\AdminHomeController;
-use App\Http\Controllers\admin\AdminProductController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\auth\UserController;
+use App\Http\Controllers\admin\AdminHomeController;
+use App\Http\Controllers\admin\AdminProductController;
 
+Route::get('/', function () {
+    return view('welcome');
+});
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
 
 Route::name('home.')->controller(HomeController::class)->group(function(){
     Route::get('/', 'index')->name('index');
@@ -20,8 +36,7 @@ Route::name('product.')->controller(ProductController::class)->group(function(){
 });
 
 
-
-Route::name('admin.')->prefix('admin')->controller(AdminHomeController::class)->group(function(){
+Route::name('admin.')->prefix('admin')->middleware('auth')->controller(AdminHomeController::class)->group(function(){
     Route::get('/', 'index')->name('home.index');
 });
 

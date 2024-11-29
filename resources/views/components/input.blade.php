@@ -4,7 +4,7 @@
     @if ($label)
         <label class="form-label" for="{{ $id ?? $name }}">{{ $label }}</label>
     @endif
-    <input id="{{ $id ?? $name }}" type="{{ $type }}" name="{{ $name }}" value="{{ $value }}"
+    <input id="{{ $id ?? $name }}" type="{{ $type }}" name="{{ $name }}" value="{{ old($name, $value) }}"
         class="form-control @error($name) is-invalid @enderror"
         placeholder="{{ $placeholder }}" {{ $required ? 'required' : '' }}/>
     @error($name)

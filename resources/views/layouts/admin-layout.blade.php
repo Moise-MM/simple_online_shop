@@ -66,6 +66,10 @@
         opacity: 0;
         transition: opacity 1s ease-out;
         }
+
+        .btn-logout:hover {
+            background-color: white;
+        }
     </style>
 
 </head>
@@ -93,6 +97,12 @@
                             <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Products</span>
                         </a>
                     </li>
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="{{ route('home.index') }}">
+                            <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Go back website</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -118,7 +128,10 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Log out</a>
+                                <form action="{{ route('logout') }}" method="POST" >
+                                    @csrf
+                                    <button class="dropdown-item border-0 shadow-0 ms-3 btn-logout">Logout</button>
+                                </form>
                             </div>
                         </li>
                     </ul>

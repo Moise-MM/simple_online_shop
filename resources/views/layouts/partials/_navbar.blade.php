@@ -21,13 +21,24 @@
                 
                 --}}
             </ul>
-            <form class="d-flex">
+            <div class="d-flex align-items-center">
                 <button class="btn btn-outline-dark" type="submit">
                     <i class="bi-cart-fill me-1"></i>
                     Cart
                     <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                 </button>
-            </form>
+                @auth
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button class="border-0 shadow-0 bg-light ms-3">Logout</button>
+                    </form>
+                    <a href="{{ route('admin.home.index') }}" class="nav-link active ms-3">Dashboard</a>
+                @else
+                    <a href="{{ route('login') }}" class="nav-link active ms-3">Login</a>
+                    <a href="{{ route('register') }}" class="nav-link active ms-3">Register</a>
+                @endauth
+                
+            </div>
         </div>
     </div>
 </nav>

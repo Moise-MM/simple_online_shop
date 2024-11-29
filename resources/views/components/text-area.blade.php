@@ -6,7 +6,7 @@
     @endif
     <textarea id="{{ $id ?? $name}}" name="{{ $name }}" cols="30" rows="5"
         class="form-control @error($name) is-invalid @enderror"
-        placeholder="{{ $placeholder }}">{{ $value }}
+        placeholder="{{ $placeholder }}">{{ old($name, $value) }}
     </textarea>
     @error($name)
         <div class="invalid-feedback">
