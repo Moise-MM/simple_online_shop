@@ -37,13 +37,7 @@ class AdminProductController extends Controller
 
     public function store(Request $request): View
     {
-        $validator = Validator::make($request->all(),[
-            "name" => "required|max:255",
-            "description" => "required",
-            "price" => "required|numeric|gt:0",
-            //'image' => 'image',
-        ]);
-
+        $validator = Product::validateData($request);
 
         if($validator->fails())
         {
@@ -103,12 +97,7 @@ class AdminProductController extends Controller
     public function update(Request $request, Product $product)
     {
 
-        $validator = Validator::make($request->all(),[
-            "name" => "required|max:255",
-            "description" => "required",
-            "price" => "required|numeric|gt:0",
-            //'image' => 'image',
-        ]);
+        $validator = Product::validateData($request);
 
         $data = $request->all();
 

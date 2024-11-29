@@ -2,7 +2,10 @@
 
 namespace App\Models;
 
+
+use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Validator;
 
 class Product extends Model
 {
@@ -20,6 +23,20 @@ class Product extends Model
 
 
     protected $fillable = ['name', 'price', 'description', 'image'];
+
+
+
+    public static function validateData(Request $request)
+    {
+        $validator = Validator::make($request->all(),[
+            "name" => "required|max:255",
+            "description" => "required",
+            "price" => "required|numeric|gt:0",
+            //'image' => 'image',
+        ]);
+
+        return $validator;
+    }
 
     /*
     public function getId()
