@@ -21,7 +21,7 @@ class Product extends Model
 
     protected $fillable = ['name', 'price', 'description', 'image'];
 
-
+    /*
     public function getId()
     {
         return $this->attributes['id'];
@@ -77,5 +77,5 @@ class Product extends Model
     public function setUpdatedAt($updatedAt)
     {
         $this->attributes['updated_at'] = $updatedAt;
-    }
+    }*/
 }

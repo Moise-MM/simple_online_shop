@@ -15,11 +15,12 @@
 
     <link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
-    <title>Admin Shop</title>
+    <title>{{ $title ?? 'Admin panel' }}</title>
 
     <link href="{{ asset('back_end_assets/css/app.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/43.3.1/ckeditor5.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
     <script src="https://unpkg.com/htmx.org@2.0.3" differ></script>
     <script>
@@ -59,6 +60,11 @@
             /* Background color */
             border-color: #c3e6cb;
             /* Border color */
+        }
+
+        tr.htmx-swapping td {
+        opacity: 0;
+        transition: opacity 1s ease-out;
         }
     </style>
 

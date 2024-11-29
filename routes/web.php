@@ -30,5 +30,9 @@ Route::name('admin.')->prefix('admin')->controller(AdminProductController::class
     Route::get('/products', 'index')->name('product.index');
     Route::get('/products/create', 'create')->name('product.create');
     Route::post('/products/store', 'store')->name('product.store');
+    Route::get('/products/{product}/edit', 'edit')->name('product.edit');
+    Route::put('/products/{product}/update', 'update')->name('product.update');
+    Route::delete('/products/{product}/delete', 'delete')->name('product.delete');
+
 });
 

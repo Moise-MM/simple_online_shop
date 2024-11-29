@@ -24,10 +24,24 @@
                 <tbody>
                     @foreach ($viewData['products'] as $product)
                         <tr>
-                            <td>{{ $product->getId() }}</td>
-                            <td>{{ $product->getName() }}</td>
-                            <td>Edit</td>
-                            <td>Delete</td>
+                            <td>{{ $loop->index + 1 }}</td>
+                            <td>{{ $product->name }}</td>
+                            <td><a href="{{ route('admin.product.edit',['product' => $product]) }}" class="btn btn-success btn-sm"
+                                hx-boost="true"
+                                hx-target=".content" 
+                                hx-select=".content"
+                                hx-swap="outerHTML"><i class="bi bi-pencil-square"></i></a></td>
+                            <td>
+                                <form action="" method="post" 
+                                    hx-delete="{{ route('admin.product.delete', ['product' => $product]) }}"
+                                    hx-target="closest tr"
+                                    hx-swap="outerHTML swap:1s"
+                                    hx-confirm="Are you sure ?">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
