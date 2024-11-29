@@ -32,7 +32,9 @@
                         @csrf
                         <button class="border-0 shadow-0 bg-light ms-3">Logout</button>
                     </form>
-                    <a href="{{ route('admin.home.index') }}" class="nav-link active ms-3">Dashboard</a>
+                    @if(Auth::user()->role == "admin")
+                        <a href="{{ route('admin.home.index') }}" class="nav-link active ms-3">Dashboard</a>
+                    @endif
                 @else
                     <a href="{{ route('login') }}" class="nav-link active ms-3">Login</a>
                     <a href="{{ route('register') }}" class="nav-link active ms-3">Register</a>

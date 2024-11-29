@@ -36,12 +36,12 @@ Route::name('product.')->controller(ProductController::class)->group(function(){
 });
 
 
-Route::name('admin.')->prefix('admin')->middleware('auth')->controller(AdminHomeController::class)->group(function(){
+Route::name('admin.')->prefix('admin')->middleware('admin')->controller(AdminHomeController::class)->group(function(){
     Route::get('/', 'index')->name('home.index');
 });
 
 
-Route::name('admin.')->prefix('admin')->controller(AdminProductController::class)->group(function(){
+Route::name('admin.')->prefix('admin')->middleware('admin')->controller(AdminProductController::class)->group(function(){
     Route::get('/products', 'index')->name('product.index');
     Route::get('/products/create', 'create')->name('product.create');
     Route::post('/products/store', 'store')->name('product.store');
