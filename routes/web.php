@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\auth\UserController;
 use App\Http\Controllers\admin\AdminHomeController;
 use App\Http\Controllers\admin\AdminProductController;
+use App\Http\Controllers\CartController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -33,6 +34,13 @@ Route::name('home.')->controller(HomeController::class)->group(function(){
 Route::name('product.')->controller(ProductController::class)->group(function(){
     Route::get('/products', 'index')->name('index');
     Route::get('/products/{product}', 'show')->name('show');
+});
+
+
+Route::name('cart.')->controller(CartController::class)->group(function(){
+    Route::get('/cart', 'index')->name('index');
+    Route::get('/cart/delete', 'delete')->name('delete');
+    Route::post('/cart/add/{id}', 'add')->name('add');
 });
 
 

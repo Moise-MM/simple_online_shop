@@ -28,14 +28,23 @@ class Product extends Model
 
     public static function validateData(Request $request)
     {
-        $validator = Validator::make($request->all(),[
+        $validator = Validator::make($request->all(), [
             "name" => "required|max:255",
             "description" => "required",
             "price" => "required|numeric|gt:0",
-            'image' => ['nullable','image', 'mimes:jpeg,png,jpg,gif','max:2048']
+            'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048']
         ]);
 
         return $validator;
+    }
+
+    public static function sumPricesByQuantities($products, $productsInSession)
+    {
+        $total = 0;
+        foreach ($products as $product) {
+            $total = $total + ($product->price * $productsInSession[$product->id]);
+        }
+        return $total;
     }
 
     /*
