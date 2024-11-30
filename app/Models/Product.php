@@ -19,6 +19,7 @@ class Product extends Model
      * $this->attributes['price'] - int - contains the product price
      * $this->attributes['created_at'] - timestamp - contains the product creation date
      * $this->attributes['updated_at'] - timestamp - contains the product update date
+     * * $this->items - Item[] - contains the associated items
      */
 
 
@@ -46,6 +47,12 @@ class Product extends Model
         }
         return $total;
     }
+
+    public function items()
+    {
+        return $this->hasMany(Item::class);
+    }
+
 
     /*
     public function getId()
