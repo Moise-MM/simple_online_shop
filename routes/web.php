@@ -41,7 +41,9 @@ Route::name('cart.')->controller(CartController::class)->group(function(){
     Route::get('/cart', 'index')->name('index');
     Route::get('/cart/delete', 'delete')->name('delete');
     Route::post('/cart/add/{id}', 'add')->name('add');
+    Route::get('/cart/purchase', 'purchase')->name('purchase')->middleware('auth');
 });
+
 
 
 Route::name('admin.')->prefix('admin')->middleware('admin')->controller(AdminHomeController::class)->group(function(){
