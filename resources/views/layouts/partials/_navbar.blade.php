@@ -36,10 +36,11 @@
                 @auth
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
-                        <button class="border-0 shadow-0 bg-light ms-3">Logout</button>
+                        <button class="border-0 shadow-0 bg-light mx-3">Logout</button>
                     </form>
+                    <a class="nav-link active me-3" href="{{ route('myaccount.orders') }}">My Orders</a>
                     @if(Auth::user()->role == "admin")
-                        <a href="{{ route('admin.home.index') }}" class="nav-link active ms-3">Dashboard</a>
+                        <a href="{{ route('admin.home.index') }}" class="nav-link active">Dashboard</a>
                     @endif
                 @else
                     <a href="{{ route('login') }}" class="nav-link active ms-3">Login</a>

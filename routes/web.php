@@ -8,6 +8,7 @@ use App\Http\Controllers\auth\UserController;
 use App\Http\Controllers\admin\AdminHomeController;
 use App\Http\Controllers\admin\AdminProductController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\MyAccountController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -42,6 +43,11 @@ Route::name('cart.')->controller(CartController::class)->group(function(){
     Route::get('/cart/delete', 'delete')->name('delete');
     Route::post('/cart/add/{id}', 'add')->name('add');
     Route::get('/cart/purchase', 'purchase')->name('purchase')->middleware('auth');
+});
+
+
+Route::name('myaccount.')->middleware('auth')->controller(MyAccountController::class)->group(function(){
+    Route::get('/my-account/orders', 'orders')->name('orders');
 });
 
 
