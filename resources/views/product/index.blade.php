@@ -8,7 +8,7 @@
                 <div class="col-md-4 col-lg-3 mb-2">
                     <div class="card h-100">
                         <!-- Product image-->
-                        <img src="{{ $product->image ? asset('storage/'.$product->image) : asset('img/no-image.avif') }}" class="card-img-top img-card">
+                        <img src="{{ $product->image ? asset('storage/'.$product->image) : asset('img/no-image.avif') }}" class="card-img-top img-card" width="450px" height="300px">
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -29,6 +29,7 @@
                 </div>
             @endforeach
         </div>
+        {{ $viewData['products']->links() }}
     </div>
 
 
